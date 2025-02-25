@@ -1,0 +1,204 @@
+<!-- 
+Program name: Patient regestry form
+Author: Paola Herrera
+Date created: 1/29/2025
+Date last edited: (the date I submit the project)
+Version: 1.4
+Description: The document is going to be a patient regestry form for a new patient. 
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = "stylesheet" href="style.css">
+        <title>Patient regestry form</title>
+    </head>
+    <body>
+        <div class="titleBorder">
+            <img src="Homework1/Brainandheart.png" alt="Minds n' Hearts"
+            style="width:200px;height:200px;margin-top: 0;margin-bottom: 0;">
+            <h1>Heart N' Minds Medical</h1>
+            <h4>Specialities in cardiovascular care, where we have your heart in our minds</h4>
+            <p id="demo"></p>
+                <script>
+                    const d = new Date();
+                    document.getElementById("demo").innerHTML = d;
+                </script>
+        </div>
+        <h2>Register Form</h2>
+        <div style="text-align: center;">
+            <nav>
+                <ul>
+                    <li>Welcome to Heart N' Minds Medical Register Form! If you are a new patient, please fill out this form
+                        to register to our clinic. If you're already a user, then please <a href="Homework1/Errorpage.html">'Click Here'</a> to login into your account.</li>
+                </ul>
+            </nav>
+        </div>
+        <section class="names">
+            <form action="Homework1/Thankyou.html" method="get" autocomplete="on" style="display: inline-block; text-align: left;">
+                <div style="margin-bottom: 10px;">
+                    <label for="fname">First Name:</label>
+                    <input type="text" id="fname" name="fname" maxlength="30" required>
+                    <label for="mname">Middle Initials:</label>
+                    <input type="text" id="mname" name="mname" class="minitials" maxlength="1">
+                    <label for="lname">Last Name:</label>
+                    <input type="text" id="lname" name="lname" maxlength="30" required>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <label for="DOB"> Date of Birth (MM/DD/YYYY):</label>
+                    <input type="date" id="DOB" name="DOB" required>
+                    <label for="SSN"> Social Security:</label>
+                    <input type="text" id="SSN" name="SSN" maxlength="11" placeholder="XXX-XX-XXXX" required style="width: 90px;">
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <label for="Address1"> Address 1:</label>
+                    <input type="text" id="Address1" name="Address1" required>
+                    <label for="Address2"> Address 2:</label>
+                    <input type="text" id="Address2" name="Address2">
+                </div>
+                <div style="margin-bottom: 30px;">
+                    <label for="city">City:</label>
+                    <input for="text" id="city" name="city" required>
+                    <label for="State">State:</label>
+                    <select name="State" id="State" required>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="DC">District of Columbia</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="PR">Puerto Rico</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                    </select>
+                    <label for="zipcode">Zipcode:</label>
+                    <input type="text" id="zipcode" name="zipcode" minlength="5" maxlength="10" required>
+                </div>
+                <div class="checkbox-container">
+                    <label>Do you currently have or been diagnosed with any of the following medical condition? (Check all that apply):</label>
+                    <div class="checkbox-group">
+                        <div><input type="checkbox" id="med1" name="med1" value="Asthma"><label for="med1"> Asthma</label></div>
+                        <div><input type="checkbox" id="med5" name="med5" value="Epilepsy"><label for="med5"> Epilepsy</label></div>
+                        <div><input type="checkbox" id="med2" name="med2" value="Allergies"><label for="med2"> Allergies</label></div>
+                        <div><input type="checkbox" id="med6" name="med6" value="HeartDis"><label for="med6"> Heart Disease</label></div>
+                        <div><input type="checkbox" id="med3" name="med3" value="Cancer"><label for="med3"> Cancer</label></div>
+                        <div><input type="checkbox" id="med7" name="med7" value="HBP"><label for="med7"> High Blood Pressure</label></div>
+                        <div><input type="checkbox" id="med4" name="med4" value="Diabetes"><label for="med4"> Diabetes</label></div>
+                        <div><input type="checkbox" id="med8" name="med8" value="other"><label for="med8"> Other</label></div>
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <p><label for="other">If you select 'other', what other symptoms do you have?</label></p>
+                    <textarea id="other" name="other" rows="3" cols="50"></textarea>
+                </div>
+                <div style="margin-top: 20px; margin-bottom: 20px;">
+                    <span>Gender: </span>
+                    <input type="radio" id="female" name="gender" value="female" required>
+                    <label for="female">Female</label>
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Male</label>
+                    <input type="radio" id="othergen" name="gender" value="othergen">
+                    <label for="othergen">Other</label>
+                    <input type="radio" id="NoSay" name="gender" value="NoSay">
+                    <label for="NoSay">Rather not say</label>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <span>Marital Status: </span>
+                    <input type="radio" id="single" name="Marital" value="single" required>
+                    <label for="single">Single</label>
+                    <input type="radio" id="married" name="Marital" value="married">
+                    <label for="married">Married</label>
+                    <input type="radio" id="divorced" name="Marital" value="divorced">
+                    <label for="divorced">Divorced</label>
+                    <input type="radio" id="widowed" name="Marital" value="widowed">
+                    <label for="widowed">Widowed</label>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <span>Do you have insurance?: </span>
+                    <input type="radio" id="yes" name="insurance" value="yes" required>
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="no" name="insurance" value="no">
+                    <label for="no">No</label>
+                </div>
+                <div style="text-align: center;">
+                    <p>From the scale of 1 to 10, how was the our services when you visit the clinic?</p>
+                    <input class ="slider" type="range" min="0" max="10" value="5" oninput="rangeValue.innerText = this.value"><p id="rangeValue">5</p>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" style="margin-bottom: 20px;" max="20" required><br>
+                    <label for="pwd">Password:</label>
+                    <input type="password" id="pwd" name="pwd" required style="margin-bottom: 20px;"><br>
+                    <label for="repwd">Re-enter Password:</label>
+                    <input type="password" id="repwd" name="repwd" required>
+                </div>
+                <div style="text-align: center;">
+                    <input type="reset" value="Clear and Start Over">
+                    <input type="submit" value="Submit Form">
+                </div>
+            </form>
+        </section>
+        <section id="footer">
+            <div style="text-align: center; margin-top: 20px;">
+                <nav>
+                    <ul>
+                        <li><a href="Homework1/ContactUs.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+                <p style="margin-bottom: 10px; gap: 20px;">
+                    All rights are reserved to Heart N' Minds. 
+                </p>
+                <p>
+                    Address: 12345 Rainbow Road, Houston, TX 04372
+                </p>
+            </div>
+        </section>
+    </body>
+</html>
