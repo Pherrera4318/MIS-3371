@@ -1,10 +1,10 @@
 <!-- 
 Program name: Patient regestry form
 Author: Paola Herrera
-Date created: 1/29/2025
-Date last edited: (the date I submit the project)
-Version: 1.4
-Description: The document is going to be a patient regestry form for a new patient. 
+Date created: 2/24/2025
+Date last edited: 3/09/2025
+Version: 2.6
+Description: The files is going to be a update on patient registry and it's going to be modified for a stricter requirements. 
 -->
 
 <!DOCTYPE html>
@@ -12,10 +12,11 @@ Description: The document is going to be a patient regestry form for a new patie
     <head>
         <link rel = "stylesheet" href="style.css">
         <title>Patient regestry form</title>
+        <script sr="Homework2.0/main.js" defer></script>
     </head>
     <body>
         <div class="titleBorder">
-            <img src="Homework1/Brainandheart.png" alt="Minds n' Hearts"
+            <img src="Homework2.0/Brainandheart.png" alt="Minds n' Hearts"
             style="width:200px;height:200px;margin-top: 0;margin-bottom: 0;">
             <h1>Heart N' Minds Medical</h1>
             <h4>Specialities in cardiovascular care, where we have your heart in our minds</h4>
@@ -30,31 +31,37 @@ Description: The document is going to be a patient regestry form for a new patie
             <nav>
                 <ul>
                     <li>Welcome to Heart N' Minds Medical Register Form! If you are a new patient, please fill out this form
-                        to register to our clinic. If you're already a user, then please <a href="Homework1/Errorpage.html">'Click Here'</a> to login into your account.</li>
+                        to register to our clinic. If you're already a user, then please <a href="Homework2.0/Errorpage.html">'Click Here'</a> to login into your account.</li>
                 </ul>
             </nav>
         </div>
         <section class="names">
-            <form action="Homework1/Thankyou.html" method="get" autocomplete="on" style="display: inline-block; text-align: left;">
+            <form action="Homework2.0/Thankyou.html" method="get" autocomplete="on" style="display: inline-block; text-align: left;">
                 <div style="margin-bottom: 10px;">
                     <label for="fname">First Name:</label>
-                    <input type="text" id="fname" name="fname" maxlength="30" required>
+                    <input type="text" id="fname" name="fname" minlength="1" maxlength="30" required pattern="[a-zA-Z']{1,30}" onblur="validateFname()">
+                    <span class="error" id="fnameError"></span>
                     <label for="mname">Middle Initials:</label>
-                    <input type="text" id="mname" name="mname" class="minitials" maxlength="1">
+                    <input type="text" id="Mname" name="Mname" class="minitials" maxlength="1" pattern="[a-zA-Z']{0,1}" onblur="validateMname()">
+                    <span class="error" id="MnameError"></span>
                     <label for="lname">Last Name:</label>
-                    <input type="text" id="lname" name="lname" maxlength="30" required>
+                    <input type="text" id="lname" name="lname" minlength="1" maxlength="30" required pattern="[a-zA-Z']{1,30}" onblur="validateLname()">
+                    <span class="error" id="MnameError"></span>
                 </div>
                 <div style="margin-bottom: 10px;">
                     <label for="DOB"> Date of Birth (MM/DD/YYYY):</label>
-                    <input type="date" id="DOB" name="DOB" required>
+                    <input type="date" id="DOB" name="DOB" required onblur="validateDOB()">
+                    <span class = "Error" id="DOBError"></span>
                     <label for="SSN"> Social Security:</label>
-                    <input type="text" id="SSN" name="SSN" maxlength="11" placeholder="XXX-XX-XXXX" required style="width: 90px;">
+                    <input type="text" id="SSN" name="SSN" maxlength="11" placeholder="XXX-XX-XXXX" required style="width: 90px;" onblur="validateSSN()">
+                    <span class="error" id="SSNError"></span>
                 </div>
                 <div style="margin-bottom: 10px;">
                     <label for="Address1"> Address 1:</label>
-                    <input type="text" id="Address1" name="Address1" required>
+                    <input type="text" id="Address1" name="Address1" required minlength="2" maxlength="30" onblur="validateAddress1()">
+                    <span class="error" id="Address1Error"></span>
                     <label for="Address2"> Address 2:</label>
-                    <input type="text" id="Address2" name="Address2">
+                    <input type="text" id="Address2" name="Address2" minlength="2" maxlength="30">
                 </div>
                 <div style="margin-bottom: 30px;">
                     <label for="city">City:</label>
@@ -115,7 +122,8 @@ Description: The document is going to be a patient regestry form for a new patie
                         <option value="WY">Wyoming</option>
                     </select>
                     <label for="zipcode">Zipcode:</label>
-                    <input type="text" id="zipcode" name="zipcode" minlength="5" maxlength="10" required>
+                    <input type="text" id="zipcode" name="zipcode" minlength="5" maxlength="10" required pattern="^\d{5}(-\{4})?$" onblur="validateZipcode()">
+                    <span class = "error" id="ZipcodeError"></span>
                 </div>
                 <div class="checkbox-container">
                     <label>Do you currently have or been diagnosed with any of the following medical condition? (Check all that apply):</label>
@@ -169,19 +177,27 @@ Description: The document is going to be a patient regestry form for a new patie
                 </div>
                 <div style="margin-bottom: 20px;">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,20}$">
                 </div>
                 <div style="margin-bottom: 20px;">
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username" style="margin-bottom: 20px;" max="20" required><br>
                     <label for="pwd">Password:</label>
-                    <input type="password" id="pwd" name="pwd" required style="margin-bottom: 20px;"><br>
+                    <input type="password" id="pwd" name="pwd" required style="margin-bottom: 20px;" onblur="validatePassword()" oniput="validatePassword()" onfocus="validatePassword()"><br>
                     <label for="repwd">Re-enter Password:</label>
-                    <input type="password" id="repwd" name="repwd" required>
+                    <input type="password" id="repwd" name="repwd" required onblur="confirmrepwd()" oninput="confirmrepwd()" onfocus="confirmrepwd()">
+                    <span class="error" id="repwdError"></span> 
                 </div>
                 <div style="text-align: center;">
                     <input type="reset" value="Clear and Start Over">
                     <input type="submit" value="Submit Form">
+                    <input type="button" name="Review" id="Review" value="Review" onclick="ReviewInput()">
+                </div>
+                <div class="PasswordMessage">
+                    <span id="message1"></span><br/>
+                    <span id="message2"></span><br/>
+                    <span id="message3"></span><br/>
+                    <span id="message4"></span><br/>
                 </div>
             </form>
         </section>
@@ -189,7 +205,7 @@ Description: The document is going to be a patient regestry form for a new patie
             <div style="text-align: center; margin-top: 20px;">
                 <nav>
                     <ul>
-                        <li><a href="Homework1/ContactUs.html">Contact Us</a></li>
+                        <li><a href="Homework2.0/ContactUs.html">Contact Us</a></li>
                     </ul>
                 </nav>
                 <p style="margin-bottom: 10px; gap: 20px;">
