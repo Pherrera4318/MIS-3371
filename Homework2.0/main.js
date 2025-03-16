@@ -55,7 +55,7 @@ function validateSSN(){
     }
 }
 
-function ValidateUsername{
+function validateUsername(){
     username = document.getElementById("username").value.toLowerCase();
     document.getElementById("username").value = username;
 
@@ -75,9 +75,77 @@ function ValidateUsername{
         return false;
     }
 
-    else if(username.length<5){
+    else if(username.length < 5){
         document.getElementById("username-error").textContent = "Username must be at least 5 characters";
         return false;
     }
 
+    else if(username.length > 30){
+        document.getElementById("username-error").textContent = "Username cannot be longer than 30 characters";
+        return false;
+    }
+
+    else{
+        document.getElementById("username-error").textContent = "";
+        return false;
+    }
+
+}
+
+function validatePassword(){
+    let errorMessage = [];
+
+    if(!pwd.match(/[a-z]/)) errorMessage.push("Enter at least one lowercase letter in your password");
+
+    if(!pwd.match(/[A-Z]/)) errorMessage.push("Enter at least one uppercase letter in your password");
+
+    if(!pwd.match(/[0-9]/)) errorMessage.push("Enter at least one number in your password");
+
+    if(!pwd.match(/[!\@#\$%&*\-_\\.+\(\)]/)) errorMessage.push("Enter at least one special character in your password");
+    
+    if(pwd.includes(username)) errorMessage.push("You can't add your Username as your password")
+    
+    if(errorMessage.length > 0){
+        return errorMessage;
+    }
+
+    else{
+        return "Your password fits the criteria";
+    }
+
+}
+
+function ReviewInput(){
+    var ContentInfo = document.getElementById("submitForm");
+    var ContentOutput = "<table class = 'output ><th colspan = '3' > Review your form: </th>"
+
+    for(let i = 0; i < ContentInfo.length; i++){
+        if(ContentInfo.elements[i].value !== ""){
+            switch(ContentInfo.elements[i].type){
+                case "checkbox":
+                    if(ContentInfo.elements[i].checked){
+                        ContentOutput += `<tr><td> align = 'right'>${ContentInfo.elements[i].name} </td><td> &#x2713; </td></tr>`;
+
+                    }
+                    break;
+
+                case "radio":
+                    if(ContentInfo.elemts[i].checked){
+                        ContentOutput += `<tr><td> align = 'right'>${ContentInfo.elements[i].name} </td></tr>`;
+
+                    }
+                    break;
+                
+                default:
+                    ContentOutput += `<tr><td> align = 'right'>${ContentInfo.elements[i].name} </td></tr>`
+            }
+        }
+
+        ContentOutput += "</table>";
+        document.getElementById("ReviewInput").textContent = ContentOutput;
+    }
+}
+
+function RemovingReviewData(){
+    document.getElementById("ReviewInput").textContent = "";
 }

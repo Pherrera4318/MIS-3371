@@ -94,3 +94,41 @@ I'll be really honest, I didn't read the assignment page carefully because it se
 Now I wasted 2 hours in doing research just so I can easily do the table method. For any future homework, please tell me if I need to make a table so I can 
 add it. If not I'll be leaving how it is :( **/
 
+.error {
+    color: #ffee8c;
+    font-size: 15px;
+    font-family: courier;
+    font-weight: 100;
+}
+
+password-styling {
+    text-align: right;
+    font-family: courier;
+    font-weight: 100;
+    position: relative;
+    left: 100px;
+    background: transparent;
+    padding: 10px;
+    border-spacing: 2px;
+    border-radius: 20px;
+    color: #ffee8c;
+} 
+
+#reviewingForm {
+    margin-top: 5px;
+}
+
+table.output, tr.output, td.output {
+    width: 500px;
+    background-color: #ffee8c;
+    padding: 10px;
+    border-spacing: 3px;
+    border-radius: 25px;
+}
+
+td.output{
+    width: 400px;
+    background-color: #ffee8c;
+    padding: 20px;
+    border: 3px;
+}

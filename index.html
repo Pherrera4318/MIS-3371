@@ -181,11 +181,12 @@ Description: The files is going to be a update on patient registry and it's goin
                 </div>
                 <div style="margin-bottom: 20px;">
                     <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" style="margin-bottom: 20px;" max="20" required><br>
+                    <input type="text" id="username" name="username" style="margin-bottom: 20px;" max="20" required onblur="validateUsername()" oninput="validateUsername()" onfocus="validateUsername()"><br>
                     <label for="pwd">Password:</label>
-                    <input type="password" id="pwd" name="pwd" required style="margin-bottom: 20px;" onblur="validatePassword()" oniput="validatePassword()" onfocus="validatePassword()"><br>
+                    <input type="password" id="pwd" name="pwd" required style="margin-bottom: 20px;" onblur="validatePassword()" oninput="validatePassword()" onfocus="validatePassword()"><br>
+                    <span class="error" id="pwderror"></span>
                     <label for="repwd">Re-enter Password:</label>
-                    <input type="password" id="repwd" name="repwd" required onblur="confirmrepwd()" oninput="confirmrepwd()" onfocus="confirmrepwd()">
+                    <input type="password" id="repwd" name="repwd" required onblur="confirmredPassword()" oninput="confirmredPassword()" onfocus="confirmredPassword()">
                     <span class="error" id="repwdError"></span> 
                 </div>
                 <div style="text-align: center;">
