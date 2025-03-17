@@ -12,7 +12,7 @@ Description: The files is going to be a update on patient registry and it's goin
     <head>
         <link rel = "stylesheet" href="style.css">
         <title>Patient regestry form</title>
-        <script sr="Homework2.0/main.js" defer></script>
+        <script src="Homework2.0/main.js" defer></script>
     </head>
     <body>
         <div class="titleBorder">
@@ -177,7 +177,7 @@ Description: The files is going to be a update on patient registry and it's goin
                 </div>
                 <div style="margin-bottom: 20px;">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,20}$">
+                    <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,20}$" onblur="validateEmail()" oninput="validateEmail()" onfocus="validateEmail()">
                 </div>
                 <div style="margin-bottom: 20px;">
                     <label for="username">Username:</label>

@@ -55,6 +55,20 @@ function validateSSN(){
     }
 }
 
+function validateEmail(email){
+    var emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (emailRegex.trim() == ""){
+        return "Email cannot be blank.";
+    }
+    else if(!email.match(emailRegex)){
+        return "Enter a valid email address.";
+    }
+    else{
+        return "Email is valid!";
+    }
+
+}
+
 function validateUsername(){
     username = document.getElementById("username").value.toLowerCase();
     document.getElementById("username").value = username;

@@ -95,7 +95,7 @@ Now I wasted 2 hours in doing research just so I can easily do the table method.
 add it. If not I'll be leaving how it is :( **/
 
 .error {
-    color: #ffee8c;
+    color: #1d2a51;
     font-size: 15px;
     font-family: courier;
     font-weight: 100;
@@ -111,7 +111,7 @@ password-styling {
     padding: 10px;
     border-spacing: 2px;
     border-radius: 20px;
-    color: #ffee8c;
+    color: #1d2a51;
 } 
 
 #reviewingForm {
@@ -120,7 +120,7 @@ password-styling {
 
 table.output, tr.output, td.output {
     width: 500px;
-    background-color: #ffee8c;
+    background-color: #1d2a51;
     padding: 10px;
     border-spacing: 3px;
     border-radius: 25px;
@@ -128,7 +128,7 @@ table.output, tr.output, td.output {
 
 td.output{
     width: 400px;
-    background-color: #ffee8c;
+    background-color: #1d2a51;
     padding: 20px;
     border: 3px;
 }
