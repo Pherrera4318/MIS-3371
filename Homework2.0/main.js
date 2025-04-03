@@ -6,12 +6,12 @@ function validateDOB(){
 
 
     if (date > new Date()){
-        document.getElementById("DOBError").textContent = "Cannot have date of birth in the future";
+        document.getElementById("DOBError").textContent = "(Cannot have date of birth in the future)";
         DOB.value="";
         return false;
     }
     else if (date < new Date(maxDate)){
-        document.getElementById("DOBError").textContent = "Cannot have date of birth be more than 120 years ago";
+        document.getElementById("DOBError").textContent = "(Cannot have date of birth be more than 120 years ago)";
         DOB.value="";
         return false;
     }
