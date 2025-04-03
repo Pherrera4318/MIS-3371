@@ -44,20 +44,12 @@ function validateZipcode(){
 function validateSSN(){
     const SSN = document.getElementById("SSN").textContent;
     const SSNPattern = /^[0-9]{3}-?[0-9]{2}-?[0-9]{4}$/;
-
-    if (!SSNPattern.test(SSN)){
-        document.getElementById("SSNError").textContent = "Please enter your valid Social Security Number";
-        return false;
-    }
-    else{
-        document.getElementById("SSNError").textContent = "";
-        return true;
-    }
 }
+    
 
 function validateEmail(email){
     var emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (emailRegex.trim() == ""){
+    if (emailRegex.trim()){
         return "Email cannot be blank.";
     }
     else if(!email.match(emailRegex)){
@@ -68,6 +60,7 @@ function validateEmail(email){
     }
 
 }
+
 
 function validateUsername(){
     username = document.getElementById("username").value.toLowerCase();
@@ -131,33 +124,32 @@ function validatePassword(){
 
 function ReviewInput(){
     var ContentInfo = document.getElementById("submitForm");
-    var ContentOutput = "<table class = 'output ><th colspan = '3' > Review your form: </th>"
+    var ContentOutput = "<table class = 'output' ><th colspan = '3' > Review your form: </th>";
 
     for(let i = 0; i < ContentInfo.length; i++){
         if(ContentInfo.elements[i].value !== ""){
             switch(ContentInfo.elements[i].type){
                 case "checkbox":
                     if(ContentInfo.elements[i].checked){
-                        ContentOutput += `<tr><td> align = 'right'>${ContentInfo.elements[i].name} </td><td> &#x2713; </td></tr>`;
+                        ContentOutput += `<tr><td align = 'right'>${ContentInfo.elements[i].name} </td><td> &#x2713; </td></tr>`;
 
                     }
                     break;
 
                 case "radio":
-                    if(ContentInfo.elemts[i].checked){
-                        ContentOutput += `<tr><td> align = 'right'>${ContentInfo.elements[i].name} </td></tr>`;
+                    if(ContentInfo.elements[i].checked){
+                        ContentOutput += `<tr><td align = 'right'>${ContentInfo.elements[i].name} </td></tr>`;
 
                     }
                     break;
                 
                 default:
-                    ContentOutput += `<tr><td> align = 'right'>${ContentInfo.elements[i].name} </td></tr>`
+                    ContentOutput += `<tr><td align = 'right'>${ContentInfo.elements[i].name} </td></tr>`
             }
         }
-
-        ContentOutput += "</table>";
-        document.getElementById("ReviewInput").textContent = ContentOutput;
     }
+    ContentOutput += "</table>";
+    document.getElementById("ReviewInput").innerHTML = ContentOutput;
 }
 
 function RemovingReviewData(){
