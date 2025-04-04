@@ -128,7 +128,7 @@ function ReviewInput(){
     var ContentInfo = document.getElementById("submitForm");
     var ContentOutput = "<table class = 'output' ><th colspan = '3' > Review your form: </th>";
 
-    for(let i = 0; i < ContentInfo.length; i++){
+    for(let i = 0; i < ContentInfo.elements.length; i++){
         if(ContentInfo.elements[i].value !== ""){
             switch(ContentInfo.elements[i].type){
                 case "checkbox":
@@ -140,13 +140,12 @@ function ReviewInput(){
 
                 case "radio":
                     if(ContentInfo.elements[i].checked){
-                        ContentOutput += `<tr><td align = 'right'>${ContentInfo.elements[i].name} </td></tr>`;
-
+                       ContentOutput += `<tr><td align='right'>${ContentInfo.elements[i].name}</td><td>${ContentInfo.elements[i].value}</td></tr>`;
                     }
                     break;
                 
                 default:
-                    ContentOutput += `<tr><td align = 'right'>${ContentInfo.elements[i].name} </td></tr>`
+                    ContentOutput += `<tr><td align='right'>${ContentInfo.elements[i].name}</td><td>${ContentInfo.elements[i].value}</td></tr>`;
             }
         }
     }
@@ -155,5 +154,5 @@ function ReviewInput(){
 }
 
 function RemovingReviewData(){
-    document.getElementById("ReviewInput").textContent = "";
+    document.getElementById("ReviewInput").innerHTML = "";
 }
