@@ -1,5 +1,5 @@
 <!-- 
-Program name: Patient regestry form
+Program name: Patient registry form
 Author: Paola Herrera
 Date created: 2/24/2025
 Date last edited: 3/09/2025
@@ -11,7 +11,7 @@ Description: The files is going to be a update on patient registry and it's goin
 <html>
     <head>
         <link rel = "stylesheet" href="style.css">
-        <title>Patient regestry form</title>
+        <title>Patient registry form</title>
         <script src="Homework2.0/main.js" defer></script>
     </head>
     <body>
@@ -43,15 +43,15 @@ Description: The files is going to be a update on patient registry and it's goin
                     <span class="error" id="fnameError"></span>
                     <label for="mname">Middle Initials:</label>
                     <input type="text" id="Mname" name="Mname" class="minitials" maxlength="1" pattern="[a-zA-Z']{0,1}" onblur="validateMname()">
-                    <span class="error" id="MnameError"></span>
+                    <span class="error" id="mnameError"></span>
                     <label for="lname">Last Name:</label>
                     <input type="text" id="lname" name="lname" minlength="1" maxlength="30" required pattern="[a-zA-Z']{1,30}" onblur="validateLname()">
-                    <span class="error" id="MnameError"></span>
+                    <span class="error" id="lnameError"></span>
                 </div>
                 <div style="margin-bottom: 10px;">
                     <label for="DOB"> Date of Birth (MM/DD/YYYY):</label>
                     <input type="date" id="DOB" name="DOB" required onblur="validateDOB()">
-                    <span class = "Error" id="DOBError"></span>
+                    <span class = "error" id="DOBError"></span>
                     <label for="SSN"> Social Security:</label>
                     <input type="text" id="SSN" name="SSN" maxlength="11" placeholder="XXX-XX-XXXX" required style="width: 90px;" onblur="validateSSN()">
                     <span class="error" id="SSNError"></span>
@@ -65,7 +65,7 @@ Description: The files is going to be a update on patient registry and it's goin
                 </div>
                 <div style="margin-bottom: 30px;">
                     <label for="city">City:</label>
-                    <input for="text" id="city" name="city" required>
+                    <input type="text" id="city" name="city" required>
                     <label for="State">State:</label>
                     <select name="State" id="State" required>
                         <option value="AL">Alabama</option>
@@ -122,7 +122,7 @@ Description: The files is going to be a update on patient registry and it's goin
                         <option value="WY">Wyoming</option>
                     </select>
                     <label for="zipcode">Zipcode:</label>
-                    <input type="text" id="zipcode" name="zipcode" minlength="5" maxlength="10" required pattern="^\d{5}(-\{4})?$" onblur="validateZipcode()">
+                    <input type="text" id="zipcode" name="zipcode" minlength="5" maxlength="10" required pattern="^\d{5}(-\d{4})?$" onblur="validateZipcode()">
                     <span class = "error" id="ZipcodeError"></span>
                 </div>
                 <div class="checkbox-container">
@@ -188,7 +188,7 @@ Description: The files is going to be a update on patient registry and it's goin
                     <input type="password" id="pwd" name="pwd" required style="margin-bottom: 20px;" onblur="validatePassword()" oninput="validatePassword()" onfocus="validatePassword()"><br>
                     <span class="error" id="pwderror"></span>
                     <label for="repwd">Re-enter Password:</label>
-                    <input type="password" id="repwd" name="repwd" required onblur="confirmredPassword()" oninput="confirmredPassword()" onfocus="confirmredPassword()">
+                    <input type="password" id="repwd" name="repwd" required onblur="confirmPassword()" oninput="confirmPassword()" onfocus="confirmPassword()">
                     <span class="error" id="repwdError"></span> 
                 </div>
                 <div style="text-align: center;">
