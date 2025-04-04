@@ -22,6 +22,20 @@ function validateDOB(){
 
 }
 
+function validateSSN(){
+    const SSN = document.getElementById("SSN").textContent;
+    const SSNPattern = /^[0-9]{3}-?[0-9]{2}-?[0-9]{4}$/;
+
+    if(!SNN.match(SSNPattern)){
+        document.getElementById("SSNError").textContent = "(Enter a valid Social Security Number)";
+        return false;
+    }
+    else{
+        document.getElementById("SSNError").textContent = "";
+        return true;
+    }
+}
+
 function validateZipcode(){
     const zipcodeInput = document.getElementById("zipcode");
     let zipC = zipcodeInput.value.replace(/[^\d]/g,"");
@@ -42,21 +56,6 @@ function validateZipcode(){
     return true;
 
 }
-
-function validateSSN(){
-    const SSN = document.getElementById("SSN").textContent;
-    const SSNPattern = /^[0-9]{3}-?[0-9]{2}-?[0-9]{4}$/;
-
-    if(!SNN.match(SSNPattern)){
-        document.getElementById("SSNError").textContent = "(Enter a valid Social Security Number)";
-        return false;
-    }
-    else{
-        document.getElementById("SSNError").textContent = "";
-        return true;
-    }
-}
-    
 
 function validateEmail(email){
     var emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -81,33 +80,33 @@ function validateUsername(){
     document.getElementById("username").value = username;
 
     if (username.length == 0){
-        document.getElementById("username-error").textContent = "You can't leave your Username blank";
+        document.getElementById("usernameError").textContent = "You can't leave your Username blank";
         return false;
     }
 
     if(!isNaN(username.charAt(0))){
-        document.getElementById("username-error").textContent = "You can't start your Username with a number";
+        document.getElementById("usernameError").textContent = "You can't start your Username with a number";
         return false;
     }
 
     let regex = /^[a-zA-Z0-9_-]+$/;
     if(!regex.test(username)){
-        document.getElementById("username-error").textContent = "Username can only have letters, underscore, numbers, and dashes";
+        document.getElementById("usernameError").textContent = "Username can only have letters, underscore, numbers, and dashes";
         return false;
     }
 
     else if(username.length < 5){
-        document.getElementById("username-error").textContent = "Username must be at least 5 characters";
+        document.getElementById("usernameError").textContent = "Username must be at least 5 characters";
         return false;
     }
 
     else if(username.length > 30){
-        document.getElementById("username-error").textContent = "Username cannot be longer than 30 characters";
+        document.getElementById("usernameError").textContent = "Username cannot be longer than 30 characters";
         return false;
     }
 
     else{
-        document.getElementById("username-error").textContent = "";
+        document.getElementById("usernameError").textContent = "";
         return true;
     }
 
