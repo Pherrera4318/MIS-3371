@@ -178,10 +178,12 @@ Description: The files is going to be a update on patient registry and it's goin
                 <div style="margin-bottom: 20px;">
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,20}$" onblur="validateEmail()" oninput="validateEmail()" onfocus="validateEmail()">
+                    <span class="error" id="EmailError"></span>
                 </div>
                 <div style="margin-bottom: 20px;">
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username" style="margin-bottom: 20px;" max="20" required onblur="validateUsername()" oninput="validateUsername()" onfocus="validateUsername()"><br>
+                    <span class="error" id="usernameError"></span>
                     <label for="pwd">Password:</label>
                     <input type="password" id="pwd" name="pwd" required style="margin-bottom: 20px;" onblur="validatePassword()" oninput="validatePassword()" onfocus="validatePassword()"><br>
                     <span class="error" id="pwderror"></span>
