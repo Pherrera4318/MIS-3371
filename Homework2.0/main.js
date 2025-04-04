@@ -46,19 +46,31 @@ function validateZipcode(){
 function validateSSN(){
     const SSN = document.getElementById("SSN").textContent;
     const SSNPattern = /^[0-9]{3}-?[0-9]{2}-?[0-9]{4}$/;
+
+    if(!SNN.match(SSNPattern)){
+        document.getElementById("SSNError").textContent = "(Enter a valid Social Security Number)";
+        return false;
+    }
+    else{
+        document.getElementById("SSNError").textContent = "";
+        return true;
+    }
 }
     
 
 function validateEmail(email){
     var emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (emailRegex.trim()){
-        return "Email cannot be blank.";
+    if (!email){
+        document.getElementById("EmailError").textContent = "Email cannot be blank.";
+        return false;
     }
-    else if(!email.match(emailRegex)){
-        return "Enter a valid email address.";
+    if(!email.match(emailRegex)){
+        document.getElementById("EmailError").textContent = "Enter a valid email address.";
+        return false;
     }
     else{
-        return "Email is valid!";
+        document.getElementById("EmailError).textContent = "";
+        return true;
     }
 
 }
@@ -73,7 +85,7 @@ function validateUsername(){
         return false;
     }
 
-    if(!isNaN(username.characterAt(0))){
+    if(!isNaN(username.charAt(0))){
         document.getElementById("username-error").textContent = "You can't start your Username with a number";
         return false;
     }
@@ -96,12 +108,13 @@ function validateUsername(){
 
     else{
         document.getElementById("username-error").textContent = "";
-        return false;
+        return true;
     }
 
 }
 
 function validatePassword(){
+    let pwd = document.getElementById("password").value;
     let errorMessage = [];
 
     if(!pwd.match(/[a-z]/)) errorMessage.push("Enter at least one lowercase letter in your password");
@@ -115,11 +128,13 @@ function validatePassword(){
     if(pwd.includes(username)) errorMessage.push("You can't add your Username as your password")
     
     if(errorMessage.length > 0){
+        document.getElementById("password-error").textContent = errorMessage.join(", ");
         return errorMessage;
     }
 
     else{
-        return "Your password fits the criteria";
+        document.getElementbyId("password-error").textContent = "Your password fits the criteria";
+        return true;
     }
 
 }
