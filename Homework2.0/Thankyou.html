@@ -15,5 +15,16 @@
             </nav>
         </div>
     </section>
+    <div id="DataDisplay" style ="text-align: center; margin-top: 40px;"></div>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        let html = "<h2>Submitted Information: ></h2><ul>";
+
+        params.forEach((value, key){
+            html += `<li><strong>${key}:</strong> ${decodeURIComponent(value)}</li>`;
+        });
+        html +="</u>";
+        document.getElementById(DataDisplay).innerHTML = html;
+    </script>
 </body>
 </html>
