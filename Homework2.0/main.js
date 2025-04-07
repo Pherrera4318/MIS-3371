@@ -187,18 +187,23 @@ function RemovingReviewData(){
 }
 
 function handleFormSubmit(event){
+    console.log("handleFormSubmit is running!");
     const isValid =
         validateDOB()&&
         validateSSN()&&
         validateZipcode() &&
         validateEmail(document.getElementById("email").value) &&
         validateUsername() &&
-        validatePassword();
+        validatePassword() &&
+        confirmPassword();
+    
     if(!isValid){
+        console.log("Validate failed, it's preventing from submission.");
         event.preventDefault();
         alert("Please correct any errors before submitting your form.");
         return false;
     }
+    console.log("All validations passed, proceed to thank you page.");
     return true;
 }
 
