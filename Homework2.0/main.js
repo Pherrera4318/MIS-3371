@@ -23,10 +23,10 @@ function validateDOB(){
 }
 
 function validateSSN(){
-    const SSN = document.getElementById("SSN").textContent;
+    const SSN = document.getElementById("SSN").value;
     const SSNPattern = /^[0-9]{3}-?[0-9]{2}-?[0-9]{4}$/;
 
-    if(!SNN.match(SSNPattern)){
+    if(!SSN.match(SSNPattern)){
         document.getElementById("SSNError").textContent = "(Enter a valid Social Security Number)";
         return false;
     }
@@ -113,7 +113,7 @@ function validateUsername(){
 }
 
 function validatePassword(){
-    let pwd = document.getElementById("password").value;
+    let pwd = document.getElementById("pwderror").value;
     let errorMessage = [];
 
     if(!pwd.match(/[a-z]/)) errorMessage.push("Enter at least one lowercase letter in your password");
@@ -127,12 +127,12 @@ function validatePassword(){
     if(pwd.includes(username)) errorMessage.push("You can't add your Username as your password")
     
     if(errorMessage.length > 0){
-        document.getElementById("password-error").textContent = errorMessage.join(", ");
+        document.getElementById("pwderror").textContent = errorMessage.join(", ");
         return errorMessage;
     }
 
     else{
-        document.getElementbyId("password-error").textContent = "Your password fits the criteria";
+        document.getElementById("pwderror").textContent = "Your password fits the criteria";
         return true;
     }
 
@@ -170,3 +170,23 @@ function ReviewInput(){
 function RemovingReviewData(){
     document.getElementById("ReviewInput").innerHTML = "";
 }
+
+function handleFormSubmit(event){
+    const isValid =
+        validateDOB()&&
+        validateSSN()&&
+        validateZipcode() &&
+        validateEmail(document.getElementById("email").value) &&
+        validateUsername() &&
+        validatePassword();
+    if(!isValid){
+        event.preventDefault();
+        alert("Please correct any errors before submitting your form.");
+        return false;
+    }
+    return true;
+}
+
+/**I am implementing this code so incase if a person forget to fill something out or there are errors, it should
+mentioned to the person that they need to fix the errors before submit it. Here are the inks to it
+https://www.w3schools.com/js/js_validation.asp **/
