@@ -15,18 +15,5 @@
             </nav>
         </div>
     </section>
-    <div id="DataDisplay" style ="text-align: center; margin-top: 40px;"></div>
-    <script>
-        const params = new URLSearchParams(window.location.search);
-        let html = "<h2>Submitted Information:</h2><ul>";
-
-        params.forEach((value, key) => {
-            html += `<li><strong>${key}:</strong> ${decodeURIComponent(value)}</li>`;
-        });
-        html +="</u>";
-        document.getElementById("DataDisplay").innerHTML = html;
-        /** The info from here should put all the data from the index page into the thank you page via URL query string
-        I use this this info to do this coding: https://www.w3schools.com/jsref/prop_loc_search.asp **/
-    </script>
 </body>
 </html>
