@@ -12,7 +12,6 @@ Description: The files is going to be a update on patient registry and it's goin
     <head>
         <link rel = "stylesheet" href="style.css">
         <title>Patient registry form</title>
-        <script src="Homework2.0/main.js" defer></script>
     </head>
     <body>
         <div class="titleBorder">
@@ -36,7 +35,7 @@ Description: The files is going to be a update on patient registry and it's goin
             </nav>
         </div>
         <section class="names">
-            <form id="SubmitForm" action="Homework2.0/Thankyou.html" method="get" autocomplete="on" style="display: inline-block; text-align: left;" onsubmit="return handleFormSubmit(event)">
+            <form id="submitForm" action="Homework2.0/Thankyou.html" method="get" autocomplete="on" style="display: inline-block; text-align: left;" onsubmit="return handleFormSubmit(event)">
                 <div style="margin-bottom: 10px;">
                     <label for="fname">First Name:</label>
                     <input type="text" id="fname" name="fname" minlength="1" maxlength="30" required pattern="[a-zA-Z']{1,30}" onblur="validateFname()">
@@ -219,5 +218,6 @@ Description: The files is going to be a update on patient registry and it's goin
                 </p>
             </div>
         </section>
+        <script src="Homework2.0/main.js" defer></script>
     </body>
 </html>
