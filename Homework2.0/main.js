@@ -190,3 +190,8 @@ function handleFormSubmit(event){
 /**I am implementing this code so incase if a person forget to fill something out or there are errors, it should
 mentioned to the person that they need to fix the errors before submit it. Here are the inks to it
 https://www.w3schools.com/js/js_validation.asp **/
+
+document.addEventListener('DOMContentLoaded', function(){
+    const form = document.getElementById('submitForm');
+    form.addEventListener('submit', handleFormSubmit);
+});
