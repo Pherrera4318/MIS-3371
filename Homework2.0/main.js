@@ -129,7 +129,7 @@ function validatePassword(){
     
     if(errorMessage.length > 0){
         document.getElementById("pwderror").textContent = errorMessage.join(", ");
-        return errorMessage;
+        return false;
     }
 
     else{
