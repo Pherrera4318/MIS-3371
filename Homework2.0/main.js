@@ -76,7 +76,7 @@ function validateEmail(email){
 
 
 function validateUsername(){
-    username = document.getElementById("username").value.toLowerCase();
+    let username = document.getElementById("username").value.toLowerCase();
     document.getElementById("username").value = username;
 
     if (username.length == 0){
