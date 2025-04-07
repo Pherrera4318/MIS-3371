@@ -68,7 +68,7 @@ function validateEmail(email){
         return false;
     }
     else{
-        document.getElementById("EmailError).textContent = "";
+        document.getElementById("EmailError").textContent = "";
         return true;
     }
 
@@ -113,7 +113,8 @@ function validateUsername(){
 }
 
 function validatePassword(){
-    let pwd = document.getElementById("pwderror").value;
+    let pwd = document.getElementById("pwd").value;
+    let username = document.getElementById("username").value;
     let errorMessage = [];
 
     if(!pwd.match(/[a-z]/)) errorMessage.push("Enter at least one lowercase letter in your password");
@@ -136,6 +137,20 @@ function validatePassword(){
         return true;
     }
 
+}
+
+function confirmPassword(){
+    const pwd = document.getElementById("pwd").value;
+    const repwd = document.getElementById("repwd").value;
+
+    if(pwd !== repwd){
+        document.getElementById("repwdError").textContent = "Your password does not match. Please make sure to match your passwords.";
+        return false;
+    }
+    else{
+        document.getElementById("repwdError").textContent = "";
+        return true;
+    }
 }
 
 function ReviewInput(){
