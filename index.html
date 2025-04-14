@@ -15,7 +15,7 @@ Description: The files is going to be a update on patient registry and it's goin
     </head>
     <body>
         <div class="titleBorder">
-           <img src="Homework3/Brainandheart (1).png" alt="Minds n' Hearts">
+           <img src="Homework3/Brainandheart (1).png" alt="Minds n' Hearts"
             style="width:200px;height:200px;margin-top: 0;margin-bottom: 0;">
             <h1>Heart N' Minds Medical</h1>
             <h4>Specialities in cardiovascular care, where we have your heart in our minds</h4>
@@ -190,17 +190,24 @@ Description: The files is going to be a update on patient registry and it's goin
                     <input type="password" id="repwd" name="repwd" required onblur="confirmPassword()" oninput="confirmPassword()" onfocus="confirmPassword()">
                     <span class="error" id="repwdError"></span> 
                 </div>
-                <div style="text-align: center;">
-                    <input type="reset" value="Clear and Start Over">
-                    <input type="submit" value="Submit Form">
-                    <input type="button" name="Review" id="Review" value="Review" onclick="ReviewInput()">
-                </div>
                 <div class="PasswordMessage">
                     <span id="message1"></span><br/>
                     <span id="message2"></span><br/>
                     <span id="message3"></span><br/>
                     <span id="message4"></span><br/>
                 </div>
+                <div style="text-align: center;">
+                    <input type="reset" value="Clear and Start Over">
+                    <input type="submit" value="Submit Form">
+                    <input type="button" id="validate" name="validate" value="Validate" style="font-family: courial;" onclick="ValidateInput()">
+                    <input type="button" name="Review" id="Review" value="Review" onclick="ReviewInput()">
+                </div>
+              <div id="alert">
+                  <div id="alertInfo">
+                      <h5>Please fill out all the information before submiting your form</h5>
+                      <button id="closeAlert">Okay</button>
+                  </div>
+              </div>
             </form>
         </section>
         <section id="footer">
