@@ -1,3 +1,21 @@
+function validateMname(){
+    let Mname = document.getElementById("Mname").value;
+    const namePattern = /^[A-Z]+$/;
+    
+    Mname = Mname.toUppeeerCase();
+    document.getElementById("Mname").value = Mname;
+    
+    if(!Mname.match(namePattern)){
+        document.getElementById("MnameError").textContent = "Middle name initial must be upper case";
+        return false;
+    }
+    else{
+    	document.getElementById("MnameError").textContent = "";
+        return true;   
+    }
+    
+}
+
 function validateDOB(){
     DOB = document.getElementById("DOB");
     let date = new Date(DOB.value);
