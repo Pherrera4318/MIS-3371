@@ -1,3 +1,61 @@
+function validateFname(){
+    const fnameInput = document.getElementById("fname");
+    const errorBox = document.getElementById("fnameError");
+    const value = fnameInput.value.trim();
+    const namePattern = /^[A-Za-z'-]{1,30}$/;
+
+    if(value == ""){
+        errorBox.textContent = "First name is required.";
+        return false;
+    }
+    if(!namePattern.test(value)){
+        errorBox.textContent = "The first name can only have letters, dashes, and apostrophes allowed.";
+        return false;
+    }
+    errorBox.textContent = "";
+    return true;
+
+}
+
+function validateLname(){
+    const lnameInput = document.getElementById("lname");
+    const errorBox = document.getElementById("lnameError");
+    const value = fnameInput.value.trim();
+    const namePattern = /^[A-Za-z'-]{1,30}$/;
+
+    if(value == ""){
+        errorBox.textContent = "Last name is required.";
+        return false;
+    }
+    if(!namePattern.test(value)){
+        errorBox.textContent = "The last name can only have letters, dashes, and apostrophes allowed.";
+        return false;
+    }
+    errorBox.textContent = "";
+    return true;
+
+}
+
+//Need to copy validatefname for validatelname because it's the same method, just tweaking some few variables
+
+function validateMname(){
+    let Mname = document.getElementById("Mname").value;
+    const namePattern = /^[A-Z]+$/;
+    
+    Mname = Mname.toUpperCase();
+    document.getElementById("Mname").value = Mname;
+    
+    if(!Mname.match(namePattern)){
+        document.getElementById("mnameError").textContent = "Middle name initial must be upper case";
+        return false;
+    }
+    else{
+    	document.getElementById("mnameError").textContent = "";
+        return true;   
+    }
+    
+}
+
 function validateDOB(){
     DOB = document.getElementById("DOB");
     let date = new Date(DOB.value);
@@ -215,3 +273,10 @@ document.addEventListener('DOMContentLoaded', function(){
     const form = document.getElementById('submitForm');
     form.addEventListener('submit', handleFormSubmit);
 });
+
+
+
+function showAlert(){
+    var alert = document.getElementById("alert");
+    
+}
