@@ -280,3 +280,86 @@ function showAlert(){
     var alert = document.getElementById("alert");
     
 }
+
+function setCookie(name, cvalue, expiredDays){
+    var day = new Date();
+    day.setTime(day.getTime() + (expiredDays * 24 * 60 * 60 * 1000));
+    var expires = "expires = " + dat.toTCString();
+    document.cookie = name + " = " + cvalue + "; " + expires + "; path=/";
+}
+
+function getCookie(name){
+    var cookieName = name + " = ";
+    var cookies = document.cookie.split(';');
+
+    for(var i = 0; i < cookies.length; i++){
+        var cookie = cookies[i].trim();
+        if(cookie.indexof(cookieName) == 0){
+            return cookie.substring(cookieName.length, cookie.length);
+        }
+    }
+    return "";
+}
+
+inputs.foreach(function(input {
+    var inputElement = document.getElementById(input.id);
+    var cookieValue = getCookie(input.cookieName);
+
+    if(cookieValue !== ""){
+        inputElement.value = cookieValue;
+    }
+
+    inputElement.addEventListener("input", function() {
+        setCookie(input.cookieName, inputElement.value, 30);
+    });
+});
+
+var fname = getCookie("fname");
+if(fname !== ""){
+    document.getElementById("welcome1").textContent = "Welcome back, " + fname + "!<br>";
+    document.getElementById("welcome2").innerHTML = "a href='#' id= 'newUser'>Not " + fname + "? Click here to start a new form.</a>";
+    document.getElementById('newUser").addEventListener("click", function () {
+                            inputs.forEach(function (input) {
+                                setCookie(input.cookieName, "", -1);
+                            });
+                            location.reload();
+    });
+}
+
+document.getElementById("rememberMe").addEventListerner("change", function(){
+    const rememberMe = this.checked;
+
+    if(!rememberMe){
+        deleteAllCookies();
+        console.log("All cookies have been deleted because 'Remember me' is unchecked.");
+    }
+    else{
+        inputs.forEach(function(input){
+            const inputElement = document.getElementById(input.id);
+            if(inputElement.value.trim() !== ""){
+                setCookie(input.cookieName, inputElement.value, 30);
+            }
+        });
+        console.log("Cookies has been saved because 'Remember me' is checked.");
+    }
+});
+
+function deleteAllCookies(){
+    document.cookie.split(";").forEach(function (cookie){
+        let equalIndex = cookie.indexOf("=");
+        let name = equalIndex > -1 ? cookie.substr(0, equalIndex) : cookie;
+        document.cookie = name + "=; expires = Fri, 01 January 2005 00:00:00 UTC; path=/;";
+    });
+}
+
+document.addEventListner("DOMContentLoaded", function(){
+    const rememberMe = document.getElementById("rememberMe").checked;
+
+    if(!rememberMe){
+        deleteAllCookies();
+    }
+});
+
+
+    
+    
