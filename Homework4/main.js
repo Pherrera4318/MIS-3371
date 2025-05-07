@@ -20,7 +20,7 @@ function validateFname(){
 function validateLname(){
     const lnameInput = document.getElementById("lname");
     const errorBox = document.getElementById("lnameError");
-    const value = fnameInput.value.trim();
+    const value = lnameInput.value.trim();
     const namePattern = /^[A-Za-z'-]{1,30}$/;
 
     if(value == ""){
@@ -247,6 +247,9 @@ function RemovingReviewData(){
 function handleFormSubmit(event){
     console.log("handleFormSubmit is running!");
     const isValid =
+        validateFname() &&
+        validateMname() &&
+        validateLname() &&
         validateDOB()&&
         validateSSN()&&
         validateZipcode() &&
@@ -272,6 +275,11 @@ https://www.w3schools.com/js/js_validation.asp **/
 document.addEventListener('DOMContentLoaded', function(){
     const form = document.getElementById('submitForm');
     form.addEventListener('submit', handleFormSubmit);
+    const rememberMe = document.getElementById("rememberMe");
+    
+    if (rememberMe && !rememberMe.checked) {
+        deleteAllCookies();
+    }
 });
 
 
@@ -284,7 +292,7 @@ function showAlert(){
 function setCookie(name, cvalue, expiredDays){
     var day = new Date();
     day.setTime(day.getTime() + (expiredDays * 24 * 60 * 60 * 1000));
-    var expires = "expires = " + dat.toTCString();
+    var expires = "expires = " + day.toUTCString();
     document.cookie = name + " = " + cvalue + "; " + expires + "; path=/";
 }
 
@@ -294,12 +302,19 @@ function getCookie(name){
 
     for(var i = 0; i < cookies.length; i++){
         var cookie = cookies[i].trim();
-        if(cookie.indexof(cookieName) == 0){
+        if(cookie.indexOf(cookieName) === 0){
             return cookie.substring(cookieName.length, cookie.length);
         }
     }
     return "";
 }
+
+const inputs = [
+  { id: "fname", cookieName: "fname" },
+  { id: "lname", cookieName: "lname" },
+  { id: "email", cookieName: "email" },
+  { id: "username", cookieName: "username" },
+];
 
 inputs.foreach(function(input {
     var inputElement = document.getElementById(input.id);
@@ -318,7 +333,7 @@ var fname = getCookie("fname");
 if(fname !== ""){
     document.getElementById("welcome1").textContent = "Welcome back, " + fname + "!<br>";
     document.getElementById("welcome2").innerHTML = "a href='#' id= 'newUser'>Not " + fname + "? Click here to start a new form.</a>";
-    document.getElementById('newUser").addEventListener("click", function () {
+    document.getElementById("newUser").addEventListener("click", function () {
                             inputs.forEach(function (input) {
                                 setCookie(input.cookieName, "", -1);
                             });
@@ -351,15 +366,6 @@ function deleteAllCookies(){
         document.cookie = name + "=; expires = Fri, 01 January 2005 00:00:00 UTC; path=/;";
     });
 }
-
-document.addEventListner("DOMContentLoaded", function(){
-    const rememberMe = document.getElementById("rememberMe").checked;
-
-    if(!rememberMe){
-        deleteAllCookies();
-    }
-});
-
 
     
     
