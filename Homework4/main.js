@@ -318,7 +318,7 @@ const inputs = [
   { id: "username", cookieName: "username" }
 ];
 
-inputs.foreach(function(input {
+inputs.foreach(function(input) {
     var inputElement = document.getElementById(input.id);
     var cookieValue = getCookie(input.cookieName);
 
