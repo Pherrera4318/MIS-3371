@@ -315,7 +315,7 @@ const inputs = [
   { id: "fname", cookieName: "fname" },
   { id: "lname", cookieName: "lname" },
   { id: "email", cookieName: "email" },
-  { id: "username", cookieName: "username" },
+  { id: "username", cookieName: "username" }
 ];
 
 inputs.foreach(function(input {
