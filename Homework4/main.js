@@ -1,3 +1,5 @@
+console.log("✅ main.js loaded!");
+
 function validateFname(){
     const fnameInput = document.getElementById("fname");
     const errorBox = document.getElementById("fnameError");
