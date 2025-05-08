@@ -334,7 +334,7 @@ inputs.forEach(function(input) {
 var fname = getCookie("fname");
 if(fname !== ""){
     document.getElementById("welcome1").textContent = "Welcome back, " + fname + "!<br>";
-    document.getElementById("welcome2").innerHTML = "a href='#' id= 'newUser'>Not " + fname + "? Click here to start a new form.</a>";
+    document.getElementById("welcome2").innerHTML = "<a href='#' id= 'newUser'>Not " + fname + "? Click here to start a new form.</a>";
     document.getElementById("newUser").addEventListener("click", function () {
                             inputs.forEach(function (input) {
                                 setCookie(input.cookieName, "", -1);
