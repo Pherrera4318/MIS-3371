@@ -318,7 +318,7 @@ const inputs = [
   { id: "username", cookieName: "username" }
 ];
 
-inputs.foreach(function(input) {
+inputs.forEach(function(input) {
     var inputElement = document.getElementById(input.id);
     var cookieValue = getCookie(input.cookieName);
 
@@ -343,21 +343,18 @@ if(fname !== ""){
     });
 }
 
-document.getElementById("rememberMe").addEventListerner("change", function(){
+document.getElementById("rememberMe").addEventListener("change", function() {
     const rememberMe = this.checked;
 
-    if(!rememberMe){
+    if (!rememberMe) {
         deleteAllCookies();
-        console.log("All cookies have been deleted because 'Remember me' is unchecked.");
-    }
-    else{
-        inputs.forEach(function(input){
+    } else {
+        inputs.forEach(function(input) {
             const inputElement = document.getElementById(input.id);
-            if(inputElement.value.trim() !== ""){
-                setCookie(input.cookieName, inputElement.value, 30);
+            if (inputElement.value.trim() !== "") {
+                setCookie(input.cookieName, inputElement.value, 2);
             }
         });
-        console.log("Cookies has been saved because 'Remember me' is checked.");
     }
 });
 
