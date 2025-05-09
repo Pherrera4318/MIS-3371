@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thank You</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <h1 style="text-align: center;">Thank you for submitting!</h1>
+    <section id="footer">
+        <div id="returnMessage" style="text-align: center; margin-top: 20px;">
+            <nav>
+                    <a>If you want to complete a new form, please <a href="../index.html">'Click here'</a> to be redirected back to the Patient Form</a>
+            </nav>
+        </div>
+        <div id="ReviewInput" style="text-align: center; margin-top: 20px;"></div>
+    </section>
+    <script>
+        function ReviewInput(){
+            const params = new URLSearchParams(window.location.search);
+            let output = "<table class='output'><tr><th colspan = '2'>Your submitted Info</th></tr>";
+
+            for(const [key, value] of params.entries()) {
+                if(value !== ""){
+                    output += `<tr><td><strong>${key}</strong></td><td>${decodeURIComponent(value)}</td></tr>`;
+                }
+            }
+            output += "</table>";
+            document.getElementById("ReviewInput").innerHTML = output;
+        }
+        document.addEventListener('DOMContentLoaded', ReviewInput);
+    </script>
+</body>
+</html>
